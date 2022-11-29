@@ -58,7 +58,7 @@ jobs:
           echo "Unit Test Start"
           .coverage\coverage\dotnet-coverage collect -f xml  -o 'coverage.xml' dotnet test test/SparkPlug.Contracts.Test/SparkPlug.Contracts.Test.csproj -c release --verbosity normal
           echo "Sonar Scanner Analysis begin"
-          .sonar\scanner\dotnet-sonarscanner begin /k:"natarajanganapathi_sparkplug-contracts" /o:"natarajan-ganapathi" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          .sonar\scanner\dotnet-sonarscanner begin /k:"natarajanganapathi_sparkplug-contracts" /o:"natarajan-ganapathi" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml /d:sonar.host.url="https://sonarcloud.io"
           echo "Build Start"
           dotnet build src/SparkPlug.Contracts/SparkPlug.Contracts.csproj --no-incremental
           echo "Sonar Scanner Analysis end"
